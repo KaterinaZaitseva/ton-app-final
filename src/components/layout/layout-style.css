@@ -1,0 +1,215 @@
+﻿:root {
+    --grey: #85888C;
+    --grey1: #0C080D;
+    --grey2: #1A161C;
+    --white: #FFFFFF;
+    --black: #000000;
+    --blue: #3E6988;
+    --green: #3DA077;
+    --yellow: #BC9D2D;
+    --grey-met: #080509;
+    --light-grey-met: #1A171C;
+    --dark-green: #0D1212;
+    --light-green: #3DA077;
+    --dark-yellow: #110E0E;
+    --light-yellow: #AFA220;
+    --dark-blue: #0C0A0E;
+    --light-blue: #5F6FAD;
+    --dark-purple: #110D12;
+    --light-purple: #A03D9C;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    background: var(--grey2);
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+.content {
+    min-height: calc(100vh - 280px);
+}
+
+.gradient-text {
+    background-image: linear-gradient(135deg, var(--blue), var(--green), var(--yellow));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.header {
+    background-color: var(--grey1);
+    box-shadow: 1px 1px 5px 0px var(--black);
+    position: sticky;
+    display: flex;
+    justify-content: space-between;
+    top: 0;
+    width: 100%;
+    height: 80px;
+    z-index: 2;
+}
+
+.footer {
+    background-color: var(--grey1);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    padding: 30px 40px 40px 40px;
+}
+
+.footer__container {
+    font-size: 13px;
+    color: var(--white);
+    opacity: 30%;
+    padding-top: 10px;
+}
+
+.footer__container__text {
+    padding: 4px 0px;
+}
+
+.logo {
+    margin: 10px;
+    display: inline-block;
+}
+
+.logo__container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    height: 100%;
+}
+
+.logo__image {
+    height: 60px;
+}
+
+.logo__text {
+    font-weight: bold;
+    font-size: 30px;
+    padding-left: 20px;
+    background-color: var(--white);
+}
+
+.nav-bar {
+    padding: 5px 30px 5px 0px;
+    display: flex;
+    gap: 20px;
+    height: 100%;
+}
+
+.nav-bar__link {
+    display: block;
+    height: 100%;
+    width: 100px;
+    position: relative;
+    background-image: linear-gradient(135deg, var(--blue), var(--green), var(--yellow));
+    border-radius: 12px;
+    transition-duration: .25s;
+}
+
+.nav-bar__link-content {
+    position: absolute;
+    inset: -1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--grey1);
+    border-radius: 10px;
+}
+
+.nav-bar__link-content:hover{
+    background: linear-gradient(71deg, var(--grey-met), var(--light-grey-met), var(--grey-met));
+}
+
+.nav-bar__link-text {
+    font-weight: bold;
+    background-image: linear-gradient(71deg, var(--blue), var(--green), var(--yellow));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav-bar__link_active .nav-bar__link-content {
+    background: linear-gradient(71deg, var(--grey-met), var(--light-grey-met), var(--grey-met));
+    inset: 3px;
+}
+
+.nav-btn {
+    display: none;
+}
+
+#nav-check {
+    display: none;
+}
+
+@media (max-width:700px) {
+    .nav-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 15px;
+    }
+
+    .nav-btn > label {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        padding: 13px;
+    }
+
+    .nav-btn > label > span {
+        display: block;
+        width: 25px;
+        height: 10px;
+        border-top: 2px solid var(--white);
+        opacity: 30%;
+    }
+
+    .nav-bar {
+        justify-content: center;
+        padding: 0;
+        position: absolute;
+        width: 100%;
+        background-color: var(--grey1);
+        box-shadow: 1px 1px 5px 0px var(--black);
+        transition: all 0.3s ease-in;
+        overflow-y: hidden;
+        top: 80px;
+        left: 0px;
+    }
+
+    .nav-bar > a {
+        display: block;
+        width: 100%;
+    }
+
+    #nav-check:not(:checked) ~ .nav-bar {
+        height: 0px;
+    }
+
+    #nav-check:checked ~ .nav-bar {
+        height: 100%;
+        overflow-y: auto;
+    }
+
+    li {
+        margin: 5px 0px; 
+    }
+
+    .footer {
+        flex-direction: column;
+    }
+}
